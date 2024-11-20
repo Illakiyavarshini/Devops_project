@@ -1,0 +1,47 @@
+data:
+  features:
+  - TransactionAmount
+  - CustomerAge
+  - TransactionDuration
+  - LoginAttempts
+  - AccountBalance
+  - TransactionHour
+  - TransactionDay
+  - TransactionType_Enc
+  - Channel_Enc
+  - CustomerOccupation_Enc
+  - TimeSinceLastTransaction
+  - TransactionCount
+  target: Anomaly
+  test_size: 0.2
+model:
+  max_depth: null
+  n_estimators: 100
+  random_state: 42
+  type: RandomForestClassifier
+performance:
+  classification_report:
+    '0':
+      f1-score: 0.9844559585492227
+      precision: 0.9753593429158111
+      recall: 0.9937238493723849
+      support: 478.0
+    '1':
+      f1-score: 0.6341463414634146
+      precision: 0.8125
+      recall: 0.52
+      support: 25.0
+    accuracy: 0.9701789264413518
+    macro avg:
+      f1-score: 0.8093011500063187
+      precision: 0.8939296714579055
+      recall: 0.7568619246861925
+      support: 503.0
+    weighted avg:
+      f1-score: 0.9670449437835265
+      precision: 0.9672649421744686
+      recall: 0.9701789264413518
+      support: 503.0
+preprocessing:
+  categorical_encoding: LabelEncoder
+  time_since_last_transaction_fill: median
